@@ -1,9 +1,4 @@
-import React from 'react';
-import {Text} from 'react-native';
-
-import {useGetProductsQuery} from '../store/services/products';
-
-export default function Root() {
-  const {data, isSuccess, isError} = useGetProductsQuery();
-  return <Text>{JSON.stringify(data)}</Text>;
-}
+export {default as Home} from './Home/Home';
+export {default as Detail} from './Detail/Detail';
+export {default as Cart} from './Cart/Cart';
+export {default as Billing} from './Billing/Billing';
