@@ -1,10 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import Text from '../../atomics/Text/Text';
 
 export default Detail = () => {
   return (
-    <View>
-      <Text>Details screen</Text>
-    </View>
+      <Text title="Detail screen" />
   );
 };

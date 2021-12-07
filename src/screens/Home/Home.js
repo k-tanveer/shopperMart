@@ -1,11 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import Text from '../../atomics/Text/Text';
 
 export default Home = () => {
-  return (
-    <View>
-      <Text>Home screen</Text>
-    </View>
-  );
+  return <Text title="Home screen" h1={true} />;
 };
-
