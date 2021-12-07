@@ -1,13 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
 
 import {Text as RNText} from 'react-native-elements';
 
-const Text = ({title}) => {
+const Text = ({title, ...props}) => {
   return (
-    <View>
-      <RNText h1>{title}</RNText>
-    </View>
+    <RNText h1 {...props}>
+      {title}
+    </RNText>
   );
 };
 
