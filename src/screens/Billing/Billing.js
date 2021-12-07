@@ -1,10 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import Text from '../../atomics/Text/Text';
 
 export default Billing = () => {
-  return (
-    <View>
-      <Text>Billing screen</Text>
-    </View>
-  );
+  return <Text title="Billing screen" />;
 };

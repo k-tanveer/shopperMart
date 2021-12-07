@@ -1,10 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import Text from '../../atomics/Text/Text';
 
 export default Cart = () => {
   return (
-    <View>
-      <Text>Cart screen</Text>
-    </View>
+    <Text title="Cart screen" />
   );
 };
