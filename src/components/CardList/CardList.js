@@ -1,28 +1,21 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
-import ProductCard from '../ProductCard/ProductCard';
+import {FlatList} from 'react-native';
 
-const CardList = ({data}) => {
-  const renderItem = data => {
-    return <ProductCard data={data?.item} />;
-  };
-
+const CardList = ({data, renderItem}) => {
+  const keyExtrat = data => data.id;
   return (
-    <View>
-      <FlatList
-        // navigation={navigation}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          marginTop: 10,
-          paddingBottom: 50,
-        }}
-        columnWrapperStyle={{justifyContent: 'space-around'}}
-        numColumns={2}
-        data={data}
-        keyExtractor={data => data.id}
-        renderItem={renderItem}
-      />
-    </View>
+    <FlatList
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        marginTop: 10,
+        paddingBottom: 50,
+      }}
+      columnWrapperStyle={{justifyContent: 'space-around'}}
+      numColumns={2}
+      data={data}
+      keyExtractor={keyExtrat}
+      renderItem={renderItem}
+    />
   );
 };
 

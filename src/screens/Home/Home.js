@@ -1,23 +1,35 @@
 import React from 'react';
-import {ActivityIndicator, Image, StatusBar, View} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import StatusBars from '../../atomics/StatusBar/StatusBars';
 import Text from '../../atomics/Text/Text';
 import CardList from '../../components/CardList/CardList';
-import COLORS from '../../constants/colors';
+import Card from '../../components/ProductCard/Card';
 import {useGetProductsQuery} from '../../store/services/products';
 
-export default Home = () => {
+export default Home = ({navigation}) => {
   const {data, isLoading} = useGetProductsQuery();
+
+  const navigateTODetails = () => {
+    navigation.navigate('Detail');
+  };
+
+  const renderItem = data => (
+    <Card navigateTODetails={navigateTODetails} data={data?.item} />
+  );
 
   return (
     <SafeAreaView>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.violet} />
-
+      <StatusBars />
       {/* <Text title="Home screen" h1={true} /> */}
       {isLoading ? (
         <ActivityIndicator size="large" />
       ) : (
-        <CardList data={data} />
+        <CardList
+          data={data}
+          renderItem={renderItem}
+          navigateTODetails={navigateTODetails}
+        />
       )}
     </SafeAreaView>
   );
