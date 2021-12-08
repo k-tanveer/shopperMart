@@ -28,7 +28,7 @@ const CartStackScreen = () => {
 
 const Root = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={HomeStackScreen} />
       <Tab.Screen name="Cart" component={CartStackScreen} />
     </Tab.Navigator>
