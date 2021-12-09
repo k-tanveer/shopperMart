@@ -4,7 +4,7 @@ import {Text as RNText} from 'react-native-elements';
 
 const Text = ({title, ...props}) => {
   return (
-    <RNText h1 {...props}>
+    <RNText h4 {...props}>
       {title}
     </RNText>
   );
