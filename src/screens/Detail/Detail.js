@@ -1,18 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import StatusBars from '../../atomics/StatusBar/StatusBars';
-// import Text from '../../atomics/Text/Text';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {View, Text, SafeAreaView, Image, ScrollView} from 'react-native';
 import COLORS from '../../constants/colors';
 import {truncateString} from '../../utils/stringUtils';
 import styles from './styles';
 import QuantityInrDcrBtn from '../../atomics/Buttons/QuantityInrDcrBtn';
 import BuyButton from '../../atomics/Buttons/BuyButton';
+import {addToCart} from '../../store/services/Cart';
+
+import {useDispatch} from 'react-redux';
 
 export default Detail = props => {
   const {
@@ -21,6 +17,29 @@ export default Detail = props => {
       params: {singleItem},
     },
   } = props;
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  const handleAddProduct = () => {
+    const data = {
+      ...singleItem,
+      quantity: quantity,
+    };
+    dispatch(addToCart(data));
+    navigation.goBack();
+  };
+
+  const incrementBtn = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrementBtn = () => {
+    if (quantity === 0) {
+      setQuantity(0);
+    } else {
+      setQuantity(quantity - 1);
+    }
+  };
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.light}}>
@@ -28,7 +47,7 @@ export default Detail = props => {
       <View style={styles.imageContainer}>
         <Image source={{uri: singleItem?.image}} style={styles.image} />
       </View>
-      
+
       <View style={styles.detailsContainer}>
         <View style={styles.bestChoiceContainer}>
           <View style={styles.line} />
@@ -52,11 +71,11 @@ export default Detail = props => {
 
           <View style={styles.buttonsContainer}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <QuantityInrDcrBtn sign="-" />
-              <Text style={styles.quantityText}>1</Text>
-              <QuantityInrDcrBtn sign="+" />
+              <QuantityInrDcrBtn decrementBtn={decrementBtn} sign="-" />
+              <Text style={styles.quantityText}>{quantity}</Text>
+              <QuantityInrDcrBtn incrementBtn={incrementBtn} sign="+" />
             </View>
-            <BuyButton />
+            <BuyButton addToCart={quantity > 0 ? handleAddProduct : null} />
           </View>
         </View>
       </View>

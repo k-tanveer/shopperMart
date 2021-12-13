@@ -5,10 +5,14 @@ import {Billing, Cart, Detail, Home} from '../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {TouchableOpacity} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 const CartStack = createNativeStackNavigator();
+const BillingStack = createNativeStackNavigator();
 
 const HomeStackScreen = () => {
   return (
@@ -19,16 +23,23 @@ const HomeStackScreen = () => {
   );
 };
 
-const CartStackScreen = () => {
+const CartStackScreen = navigation => {
   return (
     <CartStack.Navigator>
       <CartStack.Screen name="Cart" component={Cart} />
-      <CartStack.Screen name="Billing" component={Billing} />
     </CartStack.Navigator>
   );
 };
 
-const Root = () => {
+const BillingStackScreen = navigation => {
+  return (
+    <BillingStack.Navigator>
+      <BillingStack.Screen name="Billing" component={Billing} />
+    </BillingStack.Navigator>
+  );
+};
+
+const Root = navigation => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -53,6 +64,15 @@ const Root = () => {
         }}
         name="Cart"
         component={CartStackScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <MaterialIcons name="payment" color={color} size={size} />
+          ),
+        }}
+        name="Billing"
+        component={BillingStackScreen}
       />
     </Tab.Navigator>
   );
