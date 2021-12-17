@@ -19,7 +19,7 @@ const BillingCard = ({item}) => {
           </Text>
           <Text style={styles.billingText}>{item.quantity}</Text>
 
-          <Text style={styles.billingText}>$ {item.price}</Text>
+          <Text style={styles.billingText}>$ {item.price.toFixed(2)}</Text>
         </View>
       </View>
     </Card>

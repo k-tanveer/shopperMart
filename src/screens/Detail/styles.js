@@ -3,14 +3,15 @@ import COLORS from '../../constants/colors';
 
 export default StyleSheet.create({
   imageContainer: {
-    flex: 0.5,
+    flex: 0.4,
     marginTop: 40,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: COLORS.white,
   },
   image: {
-    width: '100%',
-    height: 350,
+    width: '50%',
+    height: '100%',
     resizeMode: 'stretch',
   },
   bestChoiceContainer: {
@@ -24,11 +25,12 @@ export default StyleSheet.create({
     color: COLORS.dark,
   },
   detailsContainer: {
-    flex: 0.5,
-    backgroundColor: COLORS.light,
+    flex: 0.6,
+    backgroundColor: COLORS.gray,
     marginHorizontal: 7,
     marginBottom: 7,
-    borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     marginTop: 20,
     paddingTop: 10,
   },

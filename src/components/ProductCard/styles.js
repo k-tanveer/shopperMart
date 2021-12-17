@@ -4,9 +4,9 @@ import COLORS from '../../constants/colors';
 export default StyleSheet.create({
   card: {
     height: 200,
-    width: 180,
+    width: 160,
     backgroundColor: COLORS.white,
-    marginHorizontal: 1,
+    marginHorizontal: 10,
     borderRadius: 10,
     marginBottom: 20,
     paddingBottom: 15,
@@ -17,7 +17,7 @@ export default StyleSheet.create({
     resizeMode: 'contain',
     zIndex: 13,
     height: 110,
-    width: 150,
+    width: 130,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
