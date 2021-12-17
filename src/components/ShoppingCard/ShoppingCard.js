@@ -17,7 +17,7 @@ const ShoppingCart = ({item, removeItemFromCart}) => {
           <Text style={styles.cartText}>{truncateString(item.title, 25)}</Text>
           <Text style={styles.cartText}>quantity: {item?.quantity}</Text>
           <Text style={styles.cartText}>
-            price: ${item?.price * item?.quantity}
+            price: ${(item?.price * item?.quantity).toFixed(2)}
           </Text>
         </View>
         <View>

@@ -3,9 +3,8 @@ import styles from './styles';
 import {FlatList, SafeAreaView, TouchableOpacity} from 'react-native';
 import StatusBars from '../../atomics/StatusBar/StatusBars';
 import {removeItem, clearCart} from '../../store/services/Cart';
-
-import Text from '../../atomics/Text/Text';
 import ShoppingCart from '../../components/ShoppingCard/ShoppingCard';
+
 import {useSelector, useDispatch} from 'react-redux';
 import {Card} from 'react-native-elements';
 
@@ -31,7 +30,6 @@ export default Cart = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBars />
-      {/* <Text title="Cart screen" /> */}
       <TouchableOpacity onPress={clearCartItems}>
         <Card.Title style={styles.cartTitle}>Clear Cart Items</Card.Title>
       </TouchableOpacity>

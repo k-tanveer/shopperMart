@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import {FlatList, SafeAreaView, View} from 'react-native';
 import {Card} from 'react-native-elements';
 import StatusBars from '../../atomics/StatusBar/StatusBars';
 import TotalBoard from '../../atomics/TotalBoard/TotalBoard';
@@ -15,8 +8,6 @@ import styles from './styles';
 
 import {useSelector, useDispatch} from 'react-redux';
 import {totalPrice, totalQuantity} from '../../utils/billingUtils';
-
-// import Text from '../../atomics/Text/Text';
 
 export default Billing = ({navigation}) => {
   const {items} = useSelector(state => state.carts);
@@ -29,7 +20,6 @@ export default Billing = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBars />
-      {/* <Text title="Billing screen" /> */}
       <Card.Title style={styles.cartTitle}>Pay</Card.Title>
       <FlatList
         contentContainerStyle={{
@@ -48,7 +38,7 @@ export default Billing = ({navigation}) => {
         />
         <TotalBoard
           totalName="Total Price"
-          totalQuantity={`$ ${totalPrice(items)}`}
+          totalQuantity={`$ ${totalPrice(items).toFixed(2)}`}
         />
       </View>
     </SafeAreaView>

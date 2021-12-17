@@ -9,6 +9,7 @@ const CardList = ({data, renderItem}) => {
       contentContainerStyle={{
         marginTop: 10,
         paddingBottom: 50,
+        marginBottom: 90,
       }}
       columnWrapperStyle={{justifyContent: 'space-around'}}
       numColumns={2}

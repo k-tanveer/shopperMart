@@ -42,7 +42,8 @@ export default Detail = props => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.light}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+      {/* <> */}
       <StatusBars />
       <View style={styles.imageContainer}>
         <Image source={{uri: singleItem?.image}} style={styles.image} />
@@ -51,7 +52,9 @@ export default Detail = props => {
       <View style={styles.detailsContainer}>
         <View style={styles.bestChoiceContainer}>
           <View style={styles.line} />
-          <Text style={styles.bestChoiceText}>Best choice</Text>
+          <Text style={styles.bestChoiceText} testID="bestChoice">
+            Best choice
+          </Text>
         </View>
         <View style={styles.clothNameContainer}>
           <Text style={styles.bestChoiceText}>
@@ -64,7 +67,7 @@ export default Detail = props => {
         <View style={styles.aboutContainer}>
           <Text style={styles.bestChoiceText}>About</Text>
           <ScrollView>
-            <Text style={styles.aboutText}>
+            <Text numberOfLines={4} style={styles.aboutText}>
               {truncateString(singleItem.description, 130)}
             </Text>
           </ScrollView>
@@ -79,6 +82,7 @@ export default Detail = props => {
           </View>
         </View>
       </View>
+      {/* </> */}
     </SafeAreaView>
   );
 };
